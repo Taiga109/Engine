@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>D:\my programs\DirectX12\x64\Release\DirectX12.exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>D:\my programs\DirectX12\x64\Release\BasicPS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>D:\my programs\DirectX12\x64\Release\BasicVS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>D:\my programs\DirectX12\x64\Release\Object3dPS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>D:\my programs\DirectX12\x64\Release\Object3dVS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>D:\my programs\DirectX12\x64\Release\SpritePS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>D:\my programs\DirectX12\x64\Release\SpriteVS.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>
