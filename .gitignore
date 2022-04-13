@@ -30,3 +30,10 @@
 *.exe
 *.out
 *.app
+.vs/DirectX12/v16/Browse.VC.db
+.vs/DirectX12/v16/Browse.VC.db-shm
+.vs/DirectX12/v16/Browse.VC.db-wal
+.vs/DirectX12/v16/Browse.VC.opendb
+.vs/DirectX12/v16/Solution.VC.db
+.vs/DirectX12/v16/Solution.VC.db-shm
+.vs/DirectX12/v16/Solution.VC.db-wal
