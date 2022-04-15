@@ -2,12 +2,14 @@
 #include "DirectXCommon.h"
 #include "GameScene.h"
 #include "Audio.h"
+#include "fbxsdk.h"
 
 
 //# Windowsアプリでのエントリーポイント(main関数)
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
 	//ポインタ置き場
+	FbxManager* fbxmanager = FbxManager::Create();
 	WinApp* win = nullptr;
 	DirectXCommon* dxCommon = nullptr;
 	Input* input = nullptr;
