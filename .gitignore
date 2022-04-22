@@ -51,3 +51,10 @@ x64/Debug/Object3dPS.cso
 x64/Debug/Object3dVS.cso
 x64/Debug/SpritePS.cso
 x64/Debug/SpriteVS.cso
+x64/Release/BasicPS.cso
+x64/Release/BasicVS.cso
+x64/Release/DirectX12.pdb
+x64/Release/Object3dPS.cso
+x64/Release/Object3dVS.cso
+x64/Release/SpritePS.cso
+x64/Release/SpriteVS.cso
