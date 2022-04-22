@@ -3,6 +3,7 @@
 #include "GameScene.h"
 #include "Audio.h"
 #include "fbxsdk.h"
+#include "FBXLoader.h"
 
 
 //# Windowsアプリでのエントリーポイント(main関数)
@@ -44,7 +45,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		assert(0);
 		return 1;
 	}
+	FBXLoader::GetInstance()->Initialize(dxCommon->GetDevice());
 
+	//オーディオ初期化
 	audio = new Audio();
 	if (!audio->Initialize())
 	{
@@ -93,7 +96,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	safe_delete(input);
 	safe_delete(dxCommon);
 	safe_delete(audio);
-
+	FBXLoader::GetInstance()->Finalize();
 	// ゲームウィンドウの破棄
 	win->TerminateGameWindow();
 	safe_delete(win);
