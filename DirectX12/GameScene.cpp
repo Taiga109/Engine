@@ -68,7 +68,7 @@ void GameScene::Initialize(DirectXCommon* dxCommon, Input* input, Audio* audio)
 
 	modelbox = modelbox->CreateFromObj("box");
 	objbox->SetModel(modelbox);
-	float s = 1.0;
+	float s = 0.5;
 	objbox->SetScale({ s,s,s });
 
 	Object3d::SetTarget({ 0, 1, 0 });
@@ -78,127 +78,59 @@ void GameScene::Initialize(DirectXCommon* dxCommon, Input* input, Audio* audio)
 	y = 10;
 	ax = 0.0f;
 	ay = 0.0f;
-
-
+	f = 30;
+	m = 3;
+	g = 0.9;
 	vx = 0.0f;
 	vy = 0.0f;
+	fx = f * cos(0);
+	fy = f * sin(0);
+
 }
 void GameScene::Update()
 {
 
 	objbox->Update();
-	if (input->PushKey(DIK_1))
-	{
-		part = 0;
-	}
-
-	else if (input->PushKey(DIK_2))
-	{
-		part = 1;
-	}
-
-	else if (input->PushKey(DIK_3))
-	{
-		part = 2;
-	}
-
 	objbox->SetPosition({ x,y,0 });
-	//等速直線運動
-	if (part == 0)
+	if (input->TriggerKey(DIK_SPACE) && flag == false)
 	{
+		flag = true;
 
-		if (input->PushKey(DIK_SPACE) && flag == false)
-		{
-			flag = true;
-			if (vx == 0)
-			{
-				vx = 1.0f;
-			}
-		}
-		if (flag == true)
-		{
-			x = x + vx;
-		}
-		std::ostringstream modestr;
-		modestr << "mode(1)";
-
-
-		debugText.Print(modestr.str(), 50, 300, 1.0f);
-	}
-	//等加速度運動
-	else if (part == 1)
-	{
-
-		if (input->PushKey(DIK_SPACE) && flag == false)
-		{
-			flag = true;
-			if (ax == 0)
-			{
-				ax = 1.0f;
-			}
-		}
-		if (flag == true)
-		{
-			vx = vx + ax;
-			x = vx;
-		}
-
-		std::ostringstream modestr;
-		modestr << "mode("
-			<< "2"
-			<< ")";
-		debugText.Print(modestr.str(), 50, 300, 1.0f);
 	}
 
-	else if (part == 2)
-	{
-		if (input->PushKey(DIK_SPACE) && flag == false)
-		{
-			flag = true;
-		}
-		if (flag == true)
-		{
-
-			vy = vy + 9.8;
-			y = y + -vy;
-			
-			if (y <= -500)
-			{
-				y = -500;
-			}
-		}
-		std::ostringstream modestr;
-		modestr << "mode("
-			<< "3"
-			<< ")";
-		debugText.Print(modestr.str(), 50, 300, 1.0f);
-	}
-
+	Ny = m * g - fy;
+	f = fx - (1.5 * Ny);
+	a = f / m;
 
 	if (t >= 60)
 	{
 		flag = false;
 		Resetpos();
-		count = 0;
 	}
+
 	if (flag == true)
 	{
+
 		t++;
+		if (time<10)
+		{
+			time++;
+		}
+		
+		x = 0 * time + 0.5 * a * time * time;
 	}
-	if (input->TriggerKey(DIK_UP) && flag == false)
+	/*if (input->TriggerKey(DIK_UP) && flag == false)
 	{
 		ax += 5.0;
-		vx += 5.0;
 	}
 	if (input->TriggerKey(DIK_DOWN) && flag == false && ax > 0)
 	{
 		ax -= 5.0;
-		vx -= 5.0;
-	}
+	}*/
 	std::ostringstream ui;
-	ui << "push up add ax vx";
+	ui << "push SPACE START";
 	debugText.Print(ui.str(), 50, 400, 1.0f);
-	std::ostringstream ui2;
+	/*std::ostringstream ui2;
 	ui2 << "push down subtract ax vx";
 	debugText.Print(ui2.str(), 50, 450, 1.0f);
 	std::ostringstream a;
@@ -206,7 +138,7 @@ void GameScene::Update()
 		<< ax <<","
 		<< vx
 		<< ")";
-	debugText.Print(a.str(), 50, 350, 1.0f);
+	debugText.Print(a.str(), 50, 350, 1.0f);*/
 }
 
 void GameScene::Draw()
@@ -271,8 +203,11 @@ void GameScene::Resetpos()
 	y = 10;
 	ax = 0.0f;
 	ay = 0.0f;
-
-	t = 0;
+	f = 30;
+	m = 3;
+	g = 0.9;
 	vx = 0.0f;
 	vy = 0.0f;
+	time = 0;
+	t = 0;
 }

@@ -75,9 +75,12 @@ private: // メンバ変数
 
 	int part = 0;
 	float vx, ax, vy, ay, x, y;
-	
+	float m, g, f,a;
+	float fx, fy;
+	float Nx, Ny;
 	int t;
 	bool flag = false;
 	int count = 0;
+	int time = 0;
 };
 
