@@ -155,6 +155,7 @@
     <ClCompile Include="CollisionPrimitive.cpp" />
     <ClCompile Include="DebugText.cpp" />
     <ClCompile Include="DirectXCommon.cpp" />
+    <ClCompile Include="FBXLoader.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
@@ -215,6 +216,7 @@
     <ClInclude Include="CollisionPrimitive.h" />
     <ClInclude Include="DebugText.h" />
     <ClInclude Include="DirectXCommon.h" />
+    <ClInclude Include="FBXLoader.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Model.h" />
