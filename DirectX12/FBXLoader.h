@@ -7,6 +7,8 @@
 
 class FBXLoader
 {
+private:
+	using string = std::string;
 public:
 	// シングルトンインスタンスの取得
 	static FBXLoader* GetInstance();
@@ -15,7 +17,9 @@ public:
 	void Initialize(ID3D12Device* device);
 	// 後始末
 	void Finalize();
+	void ParseNodeRecursive(FbxModel* model, FbxNode* fbxNode);
 
+	void LoadModelFromFile(const string& modelName);
 private:
 	// D3D12デバイス
 	ID3D12Device* device = nullptr;
@@ -23,6 +27,14 @@ private:
 	FbxManager* fbxManager = nullptr;
 	// FBXインポータ
 	FbxImporter* fbxImporter = nullptr;
+	
+	
+
+public:
+	static const string baseDirectory;
+
+	const std::string FBXLoader::baseDirectory =
+		"Resources/";
 
 };
 

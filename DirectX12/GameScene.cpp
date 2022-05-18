@@ -4,6 +4,7 @@
 #include <sstream>
 #include <iomanip>
 #include "Collision.h"
+#include "FBXLoader.h"
 
 
 using namespace DirectX;
@@ -77,7 +78,7 @@ void GameScene::Initialize(DirectXCommon* dxCommon, Input* input,Audio* audio)
 	objbox = Object3d::Create();
 	objpress = Object3d::Create();
 
-
+	FBXLoader::GetInstance()->LoadModelFromFile("cube");
 	objdonut = Object3d::Create();
 	objbefordonut = Object3d::Create();
 
