@@ -45,6 +45,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		assert(0);
 		return 1;
 	}
+	//fbx初期化
 	FBXLoader::GetInstance()->Initialize(dxCommon->GetDevice());
 
 	//オーディオ初期化
@@ -103,5 +104,3 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 	return 0;
 }
-
-//s
