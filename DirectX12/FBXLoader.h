@@ -11,11 +11,14 @@ private:
 public:
 	// シングルトンインスタンスの取得
 	static FBXLoader* GetInstance();
+	//モデル格納ルートパス
+	static const string baseDirectory;
 
 	// 初期化
 	void Initialize(ID3D12Device* device);
 	// 後始末
 	void Finalize();
+
 	void ParseNodeRecursive(FbxModel* model, FbxNode* fbxNode,Node* parent=nullptr);
 	//メッシュ読み取り
 	void ParseMesh(FbxModel* model, FbxNode* fbxnode);
@@ -42,10 +45,10 @@ private:
 	
 
 public:
-	static const string baseDirectory;
 
-	const std::string FBXLoader::baseDirectory =
-		"Resources/";
+	
+
+	
 	//テクスチャがない場合の標準テクスチャファイル名
 	static const string defaultTextureFileName;
 

@@ -10,7 +10,7 @@
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
 	//ポインタ置き場
-	FbxManager* fbxmanager = FbxManager::Create();
+	//FbxManager* fbxmanager = FbxManager::Create();
 	WinApp* win = nullptr;
 	DirectXCommon* dxCommon = nullptr;
 	Input* input = nullptr;
@@ -24,7 +24,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	//DirectX初期化処理
 	dxCommon = new DirectXCommon();
 	dxCommon->Initialize(win);
-
+	//fbx初期化
+	FBXLoader::GetInstance()->Initialize(dxCommon->GetDevice());
 #pragma region 汎用機能初期化
 
 	//入力の初期化
@@ -45,8 +46,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		assert(0);
 		return 1;
 	}
-	//fbx初期化
-	FBXLoader::GetInstance()->Initialize(dxCommon->GetDevice());
+	
 
 	//オーディオ初期化
 	audio = new Audio();
@@ -56,11 +56,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		return 1;
 	}
 #pragma endregion 汎用機能初期化
-
+	
 	// ゲームシーンの初期化
 	gameScene = new GameScene();
 	gameScene->Initialize(dxCommon, input,audio);
-
+	
 	while (true)  // ゲームループ
 	{
 		// メッセージ処理

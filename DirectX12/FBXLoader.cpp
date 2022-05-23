@@ -6,7 +6,8 @@
 using namespace DirectX;
 
 const std::string FBXLoader::defaultTextureFileName = "white1x1.png";
-
+const std::string FBXLoader::baseDirectory =
+"Resources/";
 FBXLoader* FBXLoader::GetInstance()
 {
 	static FBXLoader instance;
@@ -212,7 +213,7 @@ void FBXLoader::ParseMeshFaces(FbxModel* model, FbxMesh* fbxmesh)
 void FBXLoader::ParseMaterial(FbxModel* model, FbxNode* fbxnode)
 {
 	const int materialCount = fbxnode->GetMaterialCount();
-	if (materialCount>0)
+	if (materialCount > 0)
 	{
 		//先頭のマテリアルを取得
 		FbxSurfaceMaterial* material = fbxnode->GetMaterial(0);
@@ -318,22 +319,26 @@ void FBXLoader::LoadModelFromFile(const string& modelName)
 	{
 		assert(0);
 	}
+
 	//シーン生成
 	FbxScene* fbxScene =
 		FbxScene::Create(fbxManager, "fbxScene");
 	//モデル生成
 	FbxModel* fbxmodel = new FbxModel();
 	fbxmodel->name = modelName;
+	//バッファ生成
+	fbxmodel->CreateBuffers(device);
 	//FBXノードの数を取得
 	int nodeCount = fbxScene->GetNodeCount();
 	//あらかじめ必要数分のメモリを確保することで、アドレスがずれるのを予防
 	fbxmodel->nodes.reserve(nodeCount);
 	// ルートノートから順に解析してモデルに流し込む
 	ParseNodeRecursive(fbxmodel, fbxScene->GetRootNode());
-	//FBXシーン解放
-	fbxScene->Destroy();
+	
 	//ファイルからロードしたFBXの情報をシーンにインポート
 	fbxImporter->Import(fbxScene);
+	//FBXシーン解放
+	fbxScene->Destroy();
 }
 
 

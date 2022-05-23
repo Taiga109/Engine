@@ -56,58 +56,16 @@ public: // メンバ関数
 	/// </summary>
 	void Draw();
 
-	void Resetpos();
-
-	void gameReset();
-
 private: // メンバ変数
 	DirectXCommon* dxCommon = nullptr;
 	Input* input = nullptr;
 	DebugText debugText;
-
+	Sprite* spriteBG = nullptr;
 	/// <summary>
 	/// ゲームシーン用
 	/// </summary>
-	Sprite* spritetitle = nullptr;
-	Sprite* spritegameover = nullptr;
-	Sprite* spriteui = nullptr;
+	
 
-	Model* modelbox = nullptr;
-	Model* modelbeltconber = nullptr;
-
-	Model* modelbefordonut = nullptr;
-	Model* modeldonut = nullptr;
-
-	Model* modelcookiee = nullptr;
-	Model* modelcookieeafter = nullptr;
-
-	Model* modelpress = nullptr;
-
-	Object3d* objbeltconber = nullptr;
-	Object3d* objbox = nullptr;
-	Object3d* objpress = nullptr;
-	Object3d* objbefordonut = nullptr;
-	Object3d* objdonut = nullptr;
-
-	Object3d* objbecookiee = nullptr;
-	Object3d* objcookieeafter = nullptr;
-
-	XMFLOAT3 donutpos;
-	XMFLOAT3 cookieepos;
-
-	float spherespeedZ = 0.3f;
-	float spherespeedx = 0.0001f;
-	Sphere sphere;
-	Sphere sphere2;
-	bool reset = false;
-	bool press = false;
-	bool change = false;
-	bool gameover = false;
-	int speedlevel = 0;
-	int count = 0;
-	int score = 0;
-	int type = 1;
-	int scene = 0;
-	Ray ray;
+	
 };
 
