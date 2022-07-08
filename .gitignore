@@ -65,3 +65,14 @@ x64/Debug/Object3dPS.cso
 x64/Debug/Object3dVS.cso
 x64/Debug/SpritePS.cso
 x64/Debug/SpriteVS.cso
+.vs/DirectX12/v16/ipch/AutoPCH/20fb8e7f5d3d69b1/DIRECTXCOMMON.ipch
+.vs/DirectX12/v16/ipch/AutoPCH/2790e540bb0787d4/CAMERA.ipch
+.vs/DirectX12/v16/ipch/AutoPCH/2e8388f6f531b629/AUDIO.ipch
+.vs/DirectX12/v16/ipch/AutoPCH/43eafb44dfa136fb/VECTOR3.ipch
+.vs/DirectX12/v16/ipch/AutoPCH/4e150d572b015633/INPUT.ipch
+.vs/DirectX12/v16/ipch/AutoPCH/4e97c6949fb8022a/FBXMODEL.ipch
+.vs/DirectX12/v16/ipch/AutoPCH/7378413cc80dc8a6/SPRITE.ipch
+.vs/DirectX12/v16/ipch/AutoPCH/a3bff597fdd93f67/DEBUGTEXT.ipch
+.vs/DirectX12/v16/ipch/AutoPCH/afbea84351d19c8f/COLLISION.ipch
+.vs/DirectX12/v16/ipch/AutoPCH/d3b0229fd456ed87/OBJECT3DFBX.ipch
+.vs/DirectX12/v16/ipch/AutoPCH/dede8f14e06b0fe7/DEBUGCAMERA.ipch
